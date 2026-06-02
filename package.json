@@ -28,7 +28,9 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit",
+    "deploy": "npm run build && wrangler pages deploy dist --branch=main --commit-dirty=true"
   },
   "devDependencies": {
     "@tailwindcss/vite": "^4.3.0",
