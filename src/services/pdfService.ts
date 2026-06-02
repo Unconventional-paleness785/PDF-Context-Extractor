@@ -10,13 +10,12 @@ export async function loadPDF(
   onProgress?: (loaded: number, total: number) => void,
 ): Promise<pdfjsLib.PDFDocumentProxy> {
   const arrayBuffer = await file.arrayBuffer()
-  const pdf = await pdfjsLib
-    .getDocument({
-      data: arrayBuffer,
-      onProgress: (p) => onProgress?.(p.loaded, p.total),
-    })
-    .promise
-  return pdf
+  const task = pdfjsLib.getDocument({ data: arrayBuffer })
+  if (onProgress) {
+    task.onProgress = (p: pdfjsLib.OnProgressParameters) =>
+      onProgress(p.loaded, p.total)
+  }
+  return await task.promise
 }
 
 export async function getPageText(
@@ -44,7 +43,7 @@ export async function renderPageToCanvas(
   canvas.width = viewport.width
   canvas.height = viewport.height
   const context = canvas.getContext('2d')!
-  await page.render({ canvasContext: context, viewport }).promise
+  await page.render({ canvas, canvasContext: context, viewport }).promise
 }
 
 const thumbnailCache = new Map<number, string>()
@@ -68,7 +67,7 @@ export async function getThumbnail(
     canvas.width = Math.max(1, Math.floor(viewport.width))
     canvas.height = Math.max(1, Math.floor(viewport.height))
     const context = canvas.getContext('2d')!
-    await page.render({ canvasContext: context, viewport }).promise
+    await page.render({ canvas, canvasContext: context, viewport }).promise
     const dataUrl = canvas.toDataURL('image/jpeg', 0.7)
     thumbnailCache.set(pageNumber, dataUrl)
     inflight.delete(pageNumber)

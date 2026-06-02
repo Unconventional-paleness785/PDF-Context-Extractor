@@ -40,7 +40,7 @@ export function ExtractionWorkspace() {
   const [copiedLabel, setCopiedLabel] = useState<string | null>(null)
   const [template, setTemplate] = useState<PromptTemplate>('explain')
   const [templateMenuOpen, setTemplateMenuOpen] = useState(false)
-  const extractTimer = useRef<ReturnType<typeof setTimeout>>()
+  const extractTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
   const templateMenuRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
