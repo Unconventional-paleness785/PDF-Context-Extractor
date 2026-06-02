@@ -5,11 +5,7 @@ import { usePDFStore } from '../../stores/pdfStore'
 import { handleFileSelected, formatFileSize } from '../../services/pdfActions'
 
 export function PDFUploader() {
-  const {
-    selectedFile,
-    isLoading,
-    loadProgress,
-  } = usePDFStore()
+  const { selectedFile, isLoading, loadProgress } = usePDFStore()
 
   const onDrop = useCallback((acceptedFiles: File[]) => {
     const file = acceptedFiles[0]
@@ -31,34 +27,35 @@ export function PDFUploader() {
 
   if (isLoading && selectedFile) {
     const pct = loadProgress
-      ? Math.min(100, Math.round((loadProgress.loaded / Math.max(1, loadProgress.total)) * 100))
+      ? Math.min(
+          100,
+          Math.round((loadProgress.loaded / Math.max(1, loadProgress.total)) * 100),
+        )
       : 0
     return (
-      <div
-        className="flex flex-col items-center justify-center gap-4 p-10 border-2 border-blue-500/50 bg-blue-500/5 rounded-xl max-w-xl w-full transition-all"
-      >
-        <div className="w-14 h-14 rounded-full bg-blue-500/15 text-blue-600 dark:text-blue-400 flex items-center justify-center">
+      <div className="flex flex-col items-center justify-center gap-4 p-10 border-2 border-primary/50 bg-primary/5 rounded-xl max-w-xl w-full transition-all">
+        <div className="w-14 h-14 rounded-full bg-primary/15 text-primary flex items-center justify-center">
           <Loader2 className="w-7 h-7 animate-spin" />
         </div>
         <div className="text-center space-y-1 w-full min-w-0">
-          <p className="text-base font-medium text-blue-700 dark:text-blue-300">
-            Loading PDF
-          </p>
-          <div className="flex items-center justify-center gap-2 text-xs text-neutral-600 dark:text-neutral-400 min-w-0">
+          <p className="text-base font-medium text-primary">Loading PDF</p>
+          <div className="flex items-center justify-center gap-2 text-xs text-muted-foreground min-w-0">
             <FileText className="w-3.5 h-3.5 shrink-0" />
             <span className="truncate">{selectedFile.name}</span>
-            <span className="text-neutral-400 dark:text-neutral-600 shrink-0">·</span>
-            <span className="tabular-nums shrink-0">{formatFileSize(selectedFile.size)}</span>
+            <span className="text-border shrink-0">·</span>
+            <span className="tabular-nums shrink-0">
+              {formatFileSize(selectedFile.size)}
+            </span>
           </div>
         </div>
         <div className="w-full max-w-xs space-y-1.5">
-          <div className="h-1.5 bg-neutral-200 dark:bg-neutral-800 rounded-full overflow-hidden">
+          <div className="h-1.5 bg-muted rounded-full overflow-hidden">
             <div
-              className="h-full bg-blue-500 transition-all duration-150 ease-out"
+              className="h-full bg-primary transition-all duration-150 ease-out"
               style={{ width: `${pct}%` }}
             />
           </div>
-          <p className="text-[10px] text-neutral-500 dark:text-neutral-500 text-center tabular-nums">
+          <p className="text-[10px] text-muted-foreground text-center tabular-nums">
             {pct}%
           </p>
         </div>
@@ -70,16 +67,16 @@ export function PDFUploader() {
   const showActive = isDragActive && isDragAccept
 
   const stateClasses = showError
-    ? 'border-red-500 bg-red-500/10 ring-4 ring-red-500/15 dark:ring-red-500/20'
+    ? 'border-destructive bg-destructive/10 ring-4 ring-destructive/20'
     : showActive
-      ? 'border-blue-500 bg-blue-500/15 ring-4 ring-blue-500/20 dark:ring-blue-500/25 scale-[1.015] shadow-2xl shadow-blue-500/20'
-      : 'border-neutral-300 dark:border-neutral-700 hover:border-neutral-400 dark:hover:border-neutral-600 bg-white dark:bg-neutral-900/60 hover:bg-neutral-50 dark:hover:bg-neutral-900'
+      ? 'border-primary bg-primary/15 ring-4 ring-primary/25 scale-[1.015] shadow-2xl shadow-primary/20'
+      : 'border-border hover:border-primary/40 bg-card hover:bg-muted/40'
 
   const iconClasses = showError
-    ? 'bg-red-500/15 text-red-500 scale-110'
+    ? 'bg-destructive/15 text-destructive scale-110'
     : showActive
-      ? 'bg-blue-500/20 text-blue-500 scale-110 ring-4 ring-blue-500/20'
-      : 'bg-neutral-100 dark:bg-neutral-800 text-neutral-500 dark:text-neutral-400'
+      ? 'bg-primary/20 text-primary scale-110 ring-4 ring-primary/20'
+      : 'bg-muted text-muted-foreground'
 
   const Icon = showError ? XCircle : showActive ? FileDown : Upload
 
@@ -106,10 +103,10 @@ export function PDFUploader() {
         <p
           className={`text-base md:text-lg font-medium transition-colors ${
             showError
-              ? 'text-red-600 dark:text-red-400'
+              ? 'text-destructive'
               : showActive
-                ? 'text-blue-600 dark:text-blue-300'
-                : 'text-neutral-800 dark:text-neutral-200'
+                ? 'text-primary'
+                : 'text-foreground'
           }`}
         >
           {showError
@@ -118,7 +115,7 @@ export function PDFUploader() {
               ? 'Release to load'
               : 'Drop PDF here or click to browse'}
         </p>
-        <p className="text-xs md:text-sm text-neutral-500 dark:text-neutral-500">
+        <p className="text-xs md:text-sm text-muted-foreground">
           {showActive
             ? 'Loading starts immediately'
             : 'PDF files up to 300MB, 2000 pages'}

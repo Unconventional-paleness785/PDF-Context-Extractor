@@ -62,16 +62,16 @@ export function PDFViewer() {
   if (!pdf) {
     return (
       <div className="flex-1 flex items-center justify-center">
-        <p className="text-neutral-500 text-lg">Upload a PDF to get started</p>
+        <p className="text-muted-foreground text-lg">Upload a PDF to get started</p>
       </div>
     )
   }
 
   return (
     <div className="flex flex-col h-full min-w-0 w-full">
-      <div className="flex items-center gap-2 md:gap-3 px-3 md:px-4 py-2 border-b border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-950 shrink-0">
-        <span className="text-xs md:text-sm text-neutral-600 dark:text-neutral-400 truncate flex-1 min-w-0">
-          {fileName} <span className="text-neutral-400 dark:text-neutral-600">—</span>{' '}
+      <div className="flex items-center gap-2 md:gap-3 px-3 md:px-4 py-2 border-b border-border bg-card shrink-0">
+        <span className="text-xs md:text-sm text-muted-foreground truncate flex-1 min-w-0">
+          {fileName} <span className="text-border">—</span>{' '}
           <span className="tabular-nums">
             {totalPages} {totalPages === 1 ? 'page' : 'pages'}
           </span>
@@ -80,24 +80,24 @@ export function PDFViewer() {
         <div className="flex items-center gap-0.5 shrink-0">
           <button
             onClick={zoomOut}
-            className="p-1.5 rounded hover:bg-neutral-100 dark:hover:bg-neutral-800 text-neutral-500 dark:text-neutral-400 transition-colors"
+            className="p-1.5 rounded hover:bg-muted text-muted-foreground hover:text-foreground transition-colors"
             title="Zoom out"
           >
             <Minus className="w-4 h-4" />
           </button>
-          <span className="text-xs text-neutral-500 dark:text-neutral-500 w-12 text-center tabular-nums">
+          <span className="text-xs text-muted-foreground w-12 text-center tabular-nums">
             {Math.round(scale * 100)}%
           </span>
           <button
             onClick={zoomIn}
-            className="p-1.5 rounded hover:bg-neutral-100 dark:hover:bg-neutral-800 text-neutral-500 dark:text-neutral-400 transition-colors"
+            className="p-1.5 rounded hover:bg-muted text-muted-foreground hover:text-foreground transition-colors"
             title="Zoom in"
           >
             <Plus className="w-4 h-4" />
           </button>
           <button
             onClick={zoomReset}
-            className="p-1.5 rounded hover:bg-neutral-100 dark:hover:bg-neutral-800 text-neutral-500 dark:text-neutral-400 transition-colors"
+            className="p-1.5 rounded hover:bg-muted text-muted-foreground hover:text-foreground transition-colors"
             title="Reset zoom"
           >
             <Maximize className="w-4 h-4" />
@@ -106,7 +106,7 @@ export function PDFViewer() {
       </div>
       <div
         ref={containerRef}
-        className="flex-1 overflow-auto p-3 md:p-6 bg-neutral-100 dark:bg-neutral-900"
+        className="flex-1 overflow-auto p-3 md:p-6 bg-muted/40"
       />
     </div>
   )

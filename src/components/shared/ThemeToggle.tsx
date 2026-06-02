@@ -10,7 +10,7 @@ export function ThemeToggle() {
       onClick={toggle}
       title={`Switch to ${isDark ? 'light' : 'dark'} mode`}
       aria-label="Toggle theme"
-      className="p-1.5 rounded-md hover:bg-neutral-100 dark:hover:bg-neutral-800 text-neutral-500 dark:text-neutral-400 transition-colors"
+      className="p-1.5 rounded-md hover:bg-muted text-muted-foreground hover:text-foreground transition-colors"
     >
       {isDark ? (
         <Sun className="w-4 h-4" />

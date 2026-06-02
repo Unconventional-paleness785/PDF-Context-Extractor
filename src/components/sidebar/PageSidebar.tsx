@@ -43,8 +43,8 @@ export function PageSidebar() {
   )
 
   return (
-    <div className="w-64 flex flex-col h-full border-r border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-950 shrink-0">
-      <div className="p-3 space-y-2 border-b border-neutral-200 dark:border-neutral-800">
+    <div className="w-64 flex flex-col h-full border-r border-border bg-card shrink-0">
+      <div className="p-3 space-y-2 border-b border-border">
         <div className="flex gap-1.5">
           <input
             type="text"
@@ -54,11 +54,11 @@ export function PageSidebar() {
               if (e.key === 'Enter') parseRangeInput()
             }}
             placeholder={`e.g. 1-10, 15, ${Math.max(1, Math.min(totalPages, 55))}-${totalPages}`}
-            className="flex-1 min-w-0 px-2 py-1 text-xs bg-neutral-50 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded text-neutral-800 dark:text-neutral-200 placeholder:text-neutral-400 dark:placeholder:text-neutral-600 outline-none focus:border-blue-500 dark:focus:border-blue-500 transition-colors"
+            className="flex-1 min-w-0 px-2 py-1 text-xs bg-muted border border-input rounded text-foreground placeholder:text-muted-foreground/60 outline-none focus:border-primary transition-colors"
           />
           <button
             onClick={parseRangeInput}
-            className="px-2.5 py-1 text-xs bg-neutral-100 dark:bg-neutral-900 hover:bg-neutral-200 dark:hover:bg-neutral-800 rounded border border-neutral-200 dark:border-neutral-800 text-neutral-700 dark:text-neutral-300 transition-colors"
+            className="px-2.5 py-1 text-xs bg-muted hover:bg-muted/70 rounded border border-input text-foreground/80 transition-colors"
           >
             Go
           </button>
@@ -66,19 +66,19 @@ export function PageSidebar() {
         <div className="flex gap-1">
           <button
             onClick={selectAll}
-            className="flex-1 flex items-center justify-center gap-1 px-1.5 py-1 text-xs bg-neutral-100 dark:bg-neutral-900 hover:bg-neutral-200 dark:hover:bg-neutral-800 rounded text-neutral-700 dark:text-neutral-300 transition-colors"
+            className="flex-1 flex items-center justify-center gap-1 px-1.5 py-1 text-xs bg-muted hover:bg-muted/70 rounded text-foreground/80 transition-colors"
           >
             <SquareStack className="w-3 h-3" />
             All
           </button>
           <button
             onClick={clearSelection}
-            className="flex-1 flex items-center justify-center gap-1 px-1.5 py-1 text-xs bg-neutral-100 dark:bg-neutral-900 hover:bg-neutral-200 dark:hover:bg-neutral-800 rounded text-neutral-700 dark:text-neutral-300 transition-colors"
+            className="flex-1 flex items-center justify-center gap-1 px-1.5 py-1 text-xs bg-muted hover:bg-muted/70 rounded text-foreground/80 transition-colors"
           >
             <Trash2 className="w-3 h-3" />
             Clear
           </button>
-          <div className="flex items-center bg-neutral-100 dark:bg-neutral-900 rounded p-0.5 shrink-0">
+          <div className="flex items-center bg-muted rounded p-0.5 shrink-0">
             <ViewToggle
               active={viewMode === 'list'}
               onClick={() => setViewMode('list')}
@@ -112,7 +112,7 @@ export function PageSidebar() {
         )}
       </div>
 
-      <div className="px-3 py-1.5 border-t border-neutral-200 dark:border-neutral-800 text-xs text-neutral-500">
+      <div className="px-3 py-1.5 border-t border-border text-xs text-muted-foreground">
         {selectedCount > 0
           ? `${selectedCount} page${selectedCount === 1 ? '' : 's'} selected`
           : `${totalPages} page${totalPages === 1 ? '' : 's'} total`}
@@ -139,8 +139,8 @@ function ViewToggle({
       aria-label={label}
       className={`p-1 rounded transition-colors ${
         active
-          ? 'bg-white dark:bg-neutral-700 text-neutral-900 dark:text-neutral-100 shadow-sm'
-          : 'text-neutral-500 dark:text-neutral-400 hover:text-neutral-700 dark:hover:text-neutral-300'
+          ? 'bg-card text-foreground shadow-sm'
+          : 'text-muted-foreground hover:text-foreground'
       }`}
     >
       <Icon className="w-3 h-3" />
@@ -167,14 +167,14 @@ function ListView({
             onClick={(e) => onPageClick(page, e)}
             className={`flex items-center gap-2 px-3 py-1.5 cursor-pointer text-sm select-none transition-colors border-l-2 ${
               isSelected
-                ? 'bg-blue-50 dark:bg-blue-500/10 text-blue-700 dark:text-blue-300 border-blue-500'
-                : 'text-neutral-600 dark:text-neutral-400 hover:bg-neutral-50 dark:hover:bg-neutral-900/50 border-transparent'
+                ? 'bg-primary/10 text-primary border-primary'
+                : 'text-muted-foreground hover:bg-muted/40 border-transparent'
             }`}
           >
             {isSelected ? (
-              <CheckCircle className="w-3.5 h-3.5 text-blue-500 dark:text-blue-400 shrink-0" />
+              <CheckCircle className="w-3.5 h-3.5 text-primary shrink-0" />
             ) : (
-              <Circle className="w-3.5 h-3.5 text-neutral-300 dark:text-neutral-700 shrink-0" />
+              <Circle className="w-3.5 h-3.5 text-border shrink-0" />
             )}
             <span className="tabular-nums text-xs">Page {page}</span>
           </div>
@@ -259,11 +259,11 @@ function ThumbnailCard({
       onClick={(e) => onClick(page, e)}
       className={`group relative cursor-pointer rounded-md border-2 transition-all overflow-hidden ${
         isSelected
-          ? 'border-blue-500 ring-2 ring-blue-500/30'
-          : 'border-neutral-200 dark:border-neutral-800 hover:border-neutral-300 dark:hover:border-neutral-700'
+          ? 'border-primary ring-2 ring-primary/30'
+          : 'border-border hover:border-primary/40'
       }`}
     >
-      <div className="aspect-[3/4] bg-neutral-100 dark:bg-neutral-900 flex items-center justify-center overflow-hidden">
+      <div className="aspect-[3/4] bg-muted flex items-center justify-center overflow-hidden">
         {thumbnail ? (
           <img
             src={thumbnail}
@@ -272,14 +272,14 @@ function ThumbnailCard({
             loading="lazy"
           />
         ) : (
-          <Loader2 className="w-3.5 h-3.5 text-neutral-300 dark:text-neutral-700 animate-spin" />
+          <Loader2 className="w-3.5 h-3.5 text-muted-foreground/50 animate-spin" />
         )}
       </div>
       <div
         className={`absolute top-1 left-1 w-4 h-4 rounded-full flex items-center justify-center transition-all ${
           isSelected
-            ? 'bg-blue-500 text-white scale-100'
-            : 'bg-white/90 dark:bg-neutral-900/90 text-transparent scale-90 group-hover:scale-100 group-hover:text-neutral-300'
+            ? 'bg-primary text-primary-foreground scale-100'
+            : 'bg-card/90 text-transparent scale-90 group-hover:scale-100 group-hover:text-muted-foreground/50'
         }`}
       >
         {isSelected ? <CheckCircle className="w-3 h-3" /> : <Circle className="w-3 h-3" />}
@@ -287,8 +287,8 @@ function ThumbnailCard({
       <div
         className={`absolute bottom-0 inset-x-0 px-1.5 py-0.5 text-[10px] tabular-nums font-medium ${
           isSelected
-            ? 'bg-blue-500 text-white'
-            : 'bg-white/90 dark:bg-neutral-900/90 text-neutral-700 dark:text-neutral-300'
+            ? 'bg-primary text-primary-foreground'
+            : 'bg-card/90 text-foreground/80'
         }`}
       >
         Page {page}

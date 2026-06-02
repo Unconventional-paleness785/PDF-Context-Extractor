@@ -106,9 +106,9 @@ export function ExtractionWorkspace() {
 
   if (!pdf) {
     return (
-      <div className="w-80 flex flex-col h-full border-l border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-950 shrink-0">
+      <div className="w-80 flex flex-col h-full border-l border-border bg-card shrink-0">
         <div className="flex-1 flex items-center justify-center px-4">
-          <p className="text-xs text-neutral-500 dark:text-neutral-600 text-center">
+          <p className="text-xs text-muted-foreground text-center">
             Upload a PDF to begin
           </p>
         </div>
@@ -117,42 +117,40 @@ export function ExtractionWorkspace() {
   }
 
   return (
-    <div className="w-80 flex flex-col h-full border-l border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-950 shrink-0">
-      <div className="px-4 py-3 border-b border-neutral-200 dark:border-neutral-800 space-y-3">
+    <div className="w-80 flex flex-col h-full border-l border-border bg-card shrink-0">
+      <div className="px-4 py-3 border-b border-border space-y-3">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <FileText className="w-4 h-4 text-neutral-500 dark:text-neutral-400" />
-            <h2 className="text-sm font-medium text-neutral-700 dark:text-neutral-300">
-              Workspace
-            </h2>
+            <FileText className="w-4 h-4 text-muted-foreground" />
+            <h2 className="text-sm font-medium text-foreground">Workspace</h2>
           </div>
           {isExtracting && (
-            <Loader2 className="w-3 h-3 text-blue-500 dark:text-blue-400 animate-spin" />
+            <Loader2 className="w-3 h-3 text-primary animate-spin" />
           )}
         </div>
 
         <div className="grid grid-cols-3 gap-2 text-center">
-          <div className="bg-neutral-50 dark:bg-neutral-900 rounded p-2">
-            <div className="text-base font-semibold text-neutral-800 dark:text-neutral-200 tabular-nums">
+          <div className="bg-muted rounded p-2">
+            <div className="text-base font-semibold text-foreground tabular-nums">
               {selectedCount}
             </div>
-            <div className="text-[10px] text-neutral-500 dark:text-neutral-500 uppercase tracking-wider">
+            <div className="text-[10px] text-muted-foreground uppercase tracking-wider">
               Pages
             </div>
           </div>
-          <div className="bg-neutral-50 dark:bg-neutral-900 rounded p-2">
-            <div className="text-base font-semibold text-neutral-800 dark:text-neutral-200 tabular-nums">
+          <div className="bg-muted rounded p-2">
+            <div className="text-base font-semibold text-foreground tabular-nums">
               {(extractionResult?.totalChars ?? 0).toLocaleString()}
             </div>
-            <div className="text-[10px] text-neutral-500 dark:text-neutral-500 uppercase tracking-wider">
+            <div className="text-[10px] text-muted-foreground uppercase tracking-wider">
               Chars
             </div>
           </div>
-          <div className="bg-neutral-50 dark:bg-neutral-900 rounded p-2">
-            <div className="text-base font-semibold text-neutral-800 dark:text-neutral-200 tabular-nums">
+          <div className="bg-muted rounded p-2">
+            <div className="text-base font-semibold text-foreground tabular-nums">
               {(extractionResult?.tokenEstimate ?? 0).toLocaleString()}
             </div>
-            <div className="text-[10px] text-neutral-500 dark:text-neutral-500 uppercase tracking-wider">
+            <div className="text-[10px] text-muted-foreground uppercase tracking-wider">
               Tokens
             </div>
           </div>
@@ -160,17 +158,17 @@ export function ExtractionWorkspace() {
       </div>
 
       {selectedCount > 0 && (
-        <div className="px-4 py-2 border-b border-neutral-200 dark:border-neutral-800">
+        <div className="px-4 py-2 border-b border-border">
           <div className="relative">
             <input
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Search in extracted text..."
-              className="w-full pl-7 pr-12 py-1 text-xs bg-neutral-50 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded text-neutral-800 dark:text-neutral-200 placeholder:text-neutral-400 dark:placeholder:text-neutral-600 outline-none focus:border-blue-500 dark:focus:border-blue-500 transition-colors"
+              className="w-full pl-7 pr-12 py-1 text-xs bg-muted border border-input rounded text-foreground placeholder:text-muted-foreground/60 outline-none focus:border-primary transition-colors"
             />
             <svg
-              className="absolute left-2 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-neutral-400 dark:text-neutral-600 pointer-events-none"
+              className="absolute left-2 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-muted-foreground/60 pointer-events-none"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
@@ -183,12 +181,12 @@ export function ExtractionWorkspace() {
             </svg>
             {searchQuery && (
               <div className="absolute right-1 top-1/2 -translate-y-1/2 flex items-center gap-1">
-                <span className="text-[10px] text-neutral-500 dark:text-neutral-500 tabular-nums px-1">
+                <span className="text-[10px] text-muted-foreground tabular-nums px-1">
                   {matchCount} {matchCount === 1 ? 'match' : 'matches'}
                 </span>
                 <button
                   onClick={() => setSearchQuery('')}
-                  className="p-0.5 rounded hover:bg-neutral-200 dark:hover:bg-neutral-800 text-neutral-500 dark:text-neutral-500 transition-colors"
+                  className="p-0.5 rounded hover:bg-muted-foreground/20 text-muted-foreground transition-colors"
                   title="Clear search"
                 >
                   <X className="w-3 h-3" />
@@ -202,28 +200,28 @@ export function ExtractionWorkspace() {
       <div className="flex-1 overflow-y-auto p-4">
         {extractionResult && selectedCount > 0 ? (
           searchQuery.trim() && matchCount === 0 ? (
-            <p className="text-xs text-neutral-500 dark:text-neutral-500 text-center py-8">
+            <p className="text-xs text-muted-foreground text-center py-8">
               No matches found
             </p>
           ) : (
-            <div className="text-xs text-neutral-700 dark:text-neutral-300 whitespace-pre-wrap font-sans leading-relaxed">
+            <div className="text-xs text-foreground/90 whitespace-pre-wrap font-sans leading-relaxed">
               <HighlightedText text={previewText} query={searchQuery} />
             </div>
           )
         ) : selectedCount > 0 ? (
-          <div className="flex items-center justify-center gap-2 text-neutral-500 py-8">
+          <div className="flex items-center justify-center gap-2 text-muted-foreground py-8">
             <Loader2 className="w-3.5 h-3.5 animate-spin" />
             <span className="text-xs">Extracting text...</span>
           </div>
         ) : (
-          <p className="text-xs text-neutral-500 dark:text-neutral-600 text-center py-8">
+          <p className="text-xs text-muted-foreground text-center py-8">
             Select pages from the sidebar to extract text
           </p>
         )}
       </div>
 
       {extractionResult && selectedCount > 0 && (
-        <div className="p-3 border-t border-neutral-200 dark:border-neutral-800 space-y-1.5">
+        <div className="p-3 border-t border-border space-y-1.5">
           <CopyButton
             icon={Copy}
             label="Copy Text"
@@ -244,14 +242,14 @@ export function ExtractionWorkspace() {
           />
 
           <div ref={templateMenuRef} className="relative">
-            <div className="flex w-full rounded overflow-hidden border border-neutral-200 dark:border-neutral-800">
+            <div className="flex w-full rounded overflow-hidden border border-input">
               <button
                 onClick={() =>
                   handleCopy('Copy AI Prompt', () =>
                     formatAsAIPrompt(extractionResult, template),
                   )
                 }
-                className="group relative flex-1 flex items-center gap-2 min-w-0 px-3 py-1.5 text-xs bg-neutral-100 dark:bg-neutral-900 hover:bg-neutral-200 dark:hover:bg-neutral-800 text-neutral-700 dark:text-neutral-300 transition-colors"
+                className="group relative flex-1 flex items-center gap-2 min-w-0 px-3 py-1.5 text-xs bg-muted hover:bg-muted/70 text-foreground/80 transition-colors"
               >
                 {copiedLabel === 'Copy AI Prompt' ? (
                   <Check className="w-3.5 h-3.5 text-green-600 dark:text-green-400 shrink-0" />
@@ -271,8 +269,8 @@ export function ExtractionWorkspace() {
                 aria-expanded={templateMenuOpen}
                 className={`flex items-center gap-1 px-2 py-1.5 text-[11px] font-medium border-l transition-colors shrink-0 ${
                   templateMenuOpen
-                    ? 'bg-blue-50 dark:bg-blue-500/15 text-blue-700 dark:text-blue-300 border-blue-200 dark:border-blue-500/30'
-                    : 'bg-blue-50/60 dark:bg-blue-500/10 hover:bg-blue-100 dark:hover:bg-blue-500/20 text-blue-700 dark:text-blue-300 border-blue-200/70 dark:border-blue-500/20'
+                    ? 'bg-primary/15 text-primary border-primary/30'
+                    : 'bg-primary/10 hover:bg-primary/20 text-primary border-primary/20'
                 }`}
               >
                 <span className="max-w-[80px] truncate">{activeTemplate.label}</span>
@@ -284,8 +282,8 @@ export function ExtractionWorkspace() {
               </button>
             </div>
             {templateMenuOpen && (
-              <div className="absolute bottom-full right-0 mb-1 w-72 bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-lg shadow-lg overflow-hidden z-10">
-                <div className="px-3 py-1.5 text-[10px] uppercase tracking-wider text-neutral-500 dark:text-neutral-500 border-b border-neutral-200 dark:border-neutral-800">
+              <div className="absolute bottom-full right-0 mb-1 w-72 bg-popover border border-border rounded-lg shadow-lg overflow-hidden z-10">
+                <div className="px-3 py-1.5 text-[10px] uppercase tracking-wider text-muted-foreground border-b border-border">
                   AI Prompt Template
                 </div>
                 {PROMPT_TEMPLATES.map((t) => (
@@ -297,20 +295,20 @@ export function ExtractionWorkspace() {
                     }}
                     className={`flex flex-col items-start w-full px-3 py-2 text-left transition-colors ${
                       template === t.id
-                        ? 'bg-blue-50 dark:bg-blue-500/10'
-                        : 'hover:bg-neutral-50 dark:hover:bg-neutral-800'
+                        ? 'bg-primary/10'
+                        : 'hover:bg-muted'
                     }`}
                   >
                     <span
                       className={`text-xs font-medium ${
                         template === t.id
-                          ? 'text-blue-700 dark:text-blue-300'
-                          : 'text-neutral-800 dark:text-neutral-200'
+                          ? 'text-primary'
+                          : 'text-foreground'
                       }`}
                     >
                       {t.label}
                     </span>
-                    <span className="text-[10px] text-neutral-500 dark:text-neutral-500 mt-0.5">
+                    <span className="text-[10px] text-muted-foreground mt-0.5">
                       {t.description}
                     </span>
                   </button>
@@ -321,7 +319,7 @@ export function ExtractionWorkspace() {
 
           <button
             onClick={handleExportTxt}
-            className="flex items-center gap-2 w-full px-3 py-1.5 text-xs rounded bg-neutral-100 dark:bg-neutral-900 hover:bg-neutral-200 dark:hover:bg-neutral-800 text-neutral-700 dark:text-neutral-300 transition-colors"
+            className="flex items-center gap-2 w-full px-3 py-1.5 text-xs rounded bg-muted hover:bg-muted/70 text-foreground/80 transition-colors"
           >
             <Download className="w-3.5 h-3.5" />
             <span>Export TXT</span>
@@ -345,7 +343,7 @@ function HighlightedText({ text, query }: { text: string; query: string }) {
         return isMatch ? (
           <mark
             key={i}
-            className="bg-yellow-300/50 dark:bg-yellow-500/30 text-neutral-900 dark:text-neutral-100 rounded-sm px-0.5 -mx-0.5"
+            className="bg-yellow-300/50 dark:bg-yellow-500/30 text-foreground rounded-sm px-0.5 -mx-0.5"
           >
             {part}
           </mark>
@@ -371,7 +369,7 @@ function CopyButton({
   return (
     <button
       onClick={onClick}
-      className="relative flex items-center gap-2 w-full px-3 py-1.5 text-xs rounded bg-neutral-100 dark:bg-neutral-900 hover:bg-neutral-200 dark:hover:bg-neutral-800 text-neutral-700 dark:text-neutral-300 transition-colors"
+      className="relative flex items-center gap-2 w-full px-3 py-1.5 text-xs rounded bg-muted hover:bg-muted/70 text-foreground/80 transition-colors"
     >
       {active ? (
         <Check className="w-3.5 h-3.5 text-green-600 dark:text-green-400" />
