@@ -33,7 +33,7 @@ export function PDFUploader() {
         )
       : 0
     return (
-      <div className="flex flex-col items-center justify-center gap-4 p-10 border-2 border-primary/50 bg-primary/5 rounded-xl max-w-xl w-full transition-all">
+      <div className="flex flex-col items-center justify-center gap-4 p-10 border-2 border-primary/50 bg-primary/5 rounded-xl w-full transition-all">
         <div className="w-14 h-14 rounded-full bg-primary/15 text-primary flex items-center justify-center">
           <Loader2 className="w-7 h-7 animate-spin" />
         </div>
@@ -87,7 +87,7 @@ export function PDFUploader() {
         flex flex-col items-center justify-center gap-4
         p-8 md:p-10 border-2 border-dashed rounded-xl
         cursor-pointer transition-all duration-200 ease-out
-        select-none max-w-xl w-full
+        select-none w-full
         ${stateClasses}
       `}
     >
