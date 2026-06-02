@@ -1,8 +1,30 @@
 {
   "name": "pdf-context-extractor",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.1.0",
+  "description": "Local-first web app to extract text from PDFs and paste it into AI tools",
   "type": "module",
+  "license": "MIT",
+  "homepage": "https://github.com/Mohammadjamiu/PDF-Context-Extractor#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Mohammadjamiu/PDF-Context-Extractor.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Mohammadjamiu/PDF-Context-Extractor/issues"
+  },
+  "keywords": [
+    "pdf",
+    "pdf-extractor",
+    "ai",
+    "chatgpt",
+    "claude",
+    "copy-text",
+    "pdf-to-text",
+    "ebook",
+    "research",
+    "local-first"
+  ],
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",

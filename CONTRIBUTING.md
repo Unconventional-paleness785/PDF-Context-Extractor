@@ -12,7 +12,7 @@ Thanks for your interest in contributing! This document covers the basics of wor
 ### Setup
 
 ```bash
-git clone https://github.com/<your-username>/pdf-context-extractor.git
+git clone https://github.com/Mohammadjamiu/PDF-Context-Extractor.git
 cd pdf-context-extractor
 npm install
 npm run dev

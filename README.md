@@ -4,7 +4,7 @@
 
 A local-first web app that turns *"I need to copy pages 40–55 of this ebook into ChatGPT"* from a 5-minute click-every-page chore into a 10-second workflow.
 
-[Live demo](https://pdf-context-extractor.pages.dev) · [Report bug](https://github.com/<your-username>/pdf-context-extractor/issues) · [Request feature](https://github.com/<your-username>/pdf-context-extractor/issues)
+[Report bug](https://github.com/Mohammadjamiu/PDF-Context-Extractor/issues) · [Request feature](https://github.com/Mohammadjamiu/PDF-Context-Extractor/issues)
 
 ---
 
@@ -40,7 +40,7 @@ This is broken. We fix it.
 ### Run locally
 
 ```bash
-git clone https://github.com/<your-username>/pdf-context-extractor.git
+git clone https://github.com/Mohammadjamiu/PDF-Context-Extractor.git
 cd pdf-context-extractor
 npm install
 npm run dev
