@@ -4,6 +4,7 @@ import { PageSidebar } from './components/sidebar/PageSidebar'
 import { ExtractionWorkspace } from './components/workspace/ExtractionWorkspace'
 import { ThemeToggle } from './components/shared/ThemeToggle'
 import { LandingPage } from './components/shared/LandingPage'
+import { GitHubStarButton } from './components/shared/GitHubStarButton'
 import { usePDFStore } from './stores/pdfStore'
 import { useSelectionStore } from './stores/selectionStore'
 import { useWorkspaceStore } from './stores/workspaceStore'
@@ -85,6 +86,7 @@ function App() {
         </div>
 
         <div className="flex items-center gap-1 shrink-0">
+          <GitHubStarButton />
           {pdf && (
             <div className="md:hidden flex items-center bg-muted rounded-md p-0.5">
               <MobileTab

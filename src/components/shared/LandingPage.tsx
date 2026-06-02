@@ -1,5 +1,6 @@
 import { FileText, ListChecks, Copy, Sparkles, Lock, Zap } from 'lucide-react'
 import { PDFUploader } from '../uploader/PDFUploader'
+import { GitHubStarButton } from './GitHubStarButton'
 
 export function LandingPage() {
   return (
@@ -53,6 +54,13 @@ export function LandingPage() {
             <Zap className="w-3.5 h-3.5" />
             <span>Works offline after first load</span>
           </div>
+        </div>
+
+        <div className="flex flex-col items-center gap-2 pt-2">
+          <GitHubStarButton variant="cta" />
+          <p className="text-xs text-muted-foreground">
+            Open source · MIT · contributions welcome
+          </p>
         </div>
       </div>
     </div>
